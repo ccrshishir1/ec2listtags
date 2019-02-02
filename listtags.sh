@@ -17,7 +17,7 @@ fi
 for instance in ${region[@]};
 do
 
-#AWS CLI  command to get all tags details of each instance in a region
+#AWS CLI  command to get all tags details of each instance in the region specified..
 
 aws ec2 describe-tags --region $instance  --filters "Name=resource-type,Values=instance" | jq -r '.Tags[] | "\(.ResourceId),\(.Key),\(.Value)"' >> "$outputFile"
 done
@@ -27,5 +27,5 @@ done
 
 #   <Instance ID>,<Tag Key>,<Tag Value>
 
-# This out put file will be stored into csv file as we redirected..
+# The output will be dumped into the redirected InstanceTagsList.csv file.
 
